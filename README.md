@@ -13,12 +13,14 @@ Counter-Strike 1.6 - bu ko'p o'yinchi birinchi shaxs otish o'yini bo'lib, unda o
         - nickname
         - health
         - weapons
+        - current_weapon
         - money
     - methods:
         - shoot
         - damage
-        - planned_bomb
+        - plant_bomb
         - defuse_bomb
+        - buy_weapon
 
 - Weapon:
     - attributes:
@@ -26,6 +28,5 @@ Counter-Strike 1.6 - bu ko'p o'yinchi birinchi shaxs otish o'yini bo'lib, unda o
         - price
         - ammo
         - damage
-
     - methods:
         - dec_ammo
