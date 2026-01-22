@@ -16,6 +16,7 @@ def main():
     ct02 = Player('Counter-Terrorist', 'elephand')
 
     t01.buy_weapon(random.choice(weapons))
+    t01.buy_weapon(random.choice(weapons))
     t02.buy_weapon(random.choice(weapons))
     ct01.buy_weapon(random.choice(weapons))
     ct02.buy_weapon(random.choice(weapons))

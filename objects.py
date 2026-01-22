@@ -17,7 +17,7 @@ class Player:
         self.health = 100
         self.weapons = [Weapon('USP', 200, 12, 5)]
         self.current_weapon = Weapon('USP', 200, 12, 5)
-        self.money = 15000
+        self.money = 7000
 
         self.join_message()
 
@@ -30,7 +30,7 @@ class Player:
     def damage(self):
         pass
 
-    def pland_bomb(self):
+    def plant_bomb(self):
         pass
 
     def defuse_bomb(self):
@@ -40,8 +40,9 @@ class Player:
         if weapon not in self.weapons:
             if self.money >= weapon.price:
                 self.weapons.append(weapon)
+                self.money -= weapon.price
                 print(f'{self.nickname} has bought {weapon.name}')
             else:
-                print(f'{self.nickname} has not enough money.')
+                print(f'{self.nickname} has not enough money for {weapon.name}')
         else:
             print(f'{self.nickname} already has {weapon.name}')
