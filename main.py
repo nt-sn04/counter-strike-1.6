@@ -1,5 +1,5 @@
 import random
-from objects import Weapon, Player
+from objects import Weapon, Terrorist, CounterTerrorist
 
 
 def main():
@@ -9,11 +9,11 @@ def main():
         Weapon('AWP', 5000, 10, 30),
     ]
 
-    t01 = Player('Terrorist', 'kobra')
-    t02 = Player('Terrorist', 'tiger')
+    t01 = Terrorist('kobra')
+    t02 = Terrorist('tiger')
 
-    ct01 = Player('Counter-Terrorist', 'hunter')
-    ct02 = Player('Counter-Terrorist', 'elephand')
+    ct01 = CounterTerrorist('hunter')
+    ct02 = CounterTerrorist('elephand')
 
     t01.buy_weapon(random.choice(weapons))
     t01.buy_weapon(random.choice(weapons))
@@ -25,13 +25,9 @@ def main():
     t01.shoot(ct02)
     t01.shoot(ct02)
     t01.shoot(ct02)
-    t01.shoot(ct02)
-    t01.shoot(ct02)
-    t01.shoot(ct02)
-    t01.shoot(ct02)
 
-
-    ct02.plant_bomb()
+    t02.plant_bomb()
+    
     ct01.defuse_bomb()
 
 main()

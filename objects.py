@@ -1,4 +1,5 @@
 class Weapon:
+
     def __init__(self, name, price, ammo, damage):
         self.name = name
         self.price = price
@@ -11,8 +12,8 @@ class Weapon:
         
 
 class Player:
-    def __init__(self, group, nickname):
-        self.group = group
+
+    def __init__(self, nickname):
         self.nickname = nickname
         self.health = 100
         self.weapons = [Weapon('USP', 200, 12, 5)]
@@ -35,14 +36,6 @@ class Player:
         if self.health <= 0:
             print(f'{self.nickname} has died.')
 
-    def plant_bomb(self):
-        if self.group == 'Terrorist':
-            print(f'{self.nickname} planted bomb')
-
-    def defuse_bomb(self):
-        if self.group == 'Counter-Terrorist':
-            print(f'{self.nickname} defused bomb')
-
     def buy_weapon(self, weapon: Weapon):
         if weapon not in self.weapons:
             if self.money >= weapon.price:
@@ -54,3 +47,19 @@ class Player:
                 print(f'{self.nickname} has not enough money for {weapon.name}')
         else:
             print(f'{self.nickname} already has {weapon.name}')
+
+
+class Terrorist(Player):
+    group = 'Terroris'
+    
+    def plant_bomb(self):
+        if self.group == 'Terrorist':
+            print(f'{self.nickname} planted bomb')
+
+
+class CounterTerrorist(Player):
+    group = 'Counter-Terroris'
+
+    def defuse_bomb(self):
+        if self.group == 'Counter-Terrorist':
+            print(f'{self.nickname} defused bomb')

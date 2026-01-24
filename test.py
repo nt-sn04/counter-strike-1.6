@@ -1,24 +1,29 @@
-class Player:
-    health = 100
-    money = 7000
-    weapons = []
+class Person(object):
 
-    def __init__(self, group, nickname):
-        self.group = group
-        self.nickname = nickname
-        # self.weapons = []
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-    def get_weapon(self, weapon):
-        self.weapons.append(weapon)
+    def __gt__(self, other): # greater than: >
+        return self.age > other.age
+
+    def __ge__(self, other): # greater than or equal to: >
+        return self.age >= other.age
+
+    def __lt__(self, other): # less than: <=
+        return self.age < other.age
+    
+    def __le__(self, other): # less than or equal to: <=
+        return self.age <= other.age
+
+    def __eq__(self, other): # equal to: ==
+        return self.age < other.age
+    
+    def __str__(self):
+        return f"Person(name='{self.name}', age={self.age})"
 
 
-p01 = Player('terrorist', 'ali')
-p02 = Player('counter-terrorist', 'vali')
+p01 = Person('ali', 19)
+p02 = Person('vali', 16)
 
-
-p01.get_weapon('AK-47')
-p02.get_weapon('M416')
-
-
-print(p01.weapons)
-print(p02.weapons)
+print(p01)
