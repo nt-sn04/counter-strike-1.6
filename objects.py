@@ -24,22 +24,30 @@ class Player:
     def join_message(self):
         print(f'{self.nickname} has joined to {self.group}')
     
-    def shoot(self):
-        pass
+    def shoot(self, player):
+        if self.current_weapon.ammo > 0 and self.health > 0 and player.health > 0:
+            print(f'{self.nickname} shoot {player.nickname}')
+            player.damage(self.current_weapon)
+            self.current_weapon.dec_ammo()
 
-    def damage(self):
-        pass
+    def damage(self, weapon):
+        self.health -= weapon.damage
+        if self.health <= 0:
+            print(f'{self.nickname} has died.')
 
     def plant_bomb(self):
-        pass
+        if self.group == 'Terrorist':
+            print(f'{self.nickname} planted bomb')
 
     def defuse_bomb(self):
-        pass
+        if self.group == 'Counter-Terrorist':
+            print(f'{self.nickname} defused bomb')
 
     def buy_weapon(self, weapon: Weapon):
         if weapon not in self.weapons:
             if self.money >= weapon.price:
                 self.weapons.append(weapon)
+                self.current_weapon = weapon
                 self.money -= weapon.price
                 print(f'{self.nickname} has bought {weapon.name}')
             else:

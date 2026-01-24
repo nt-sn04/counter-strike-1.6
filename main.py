@@ -21,4 +21,17 @@ def main():
     ct01.buy_weapon(random.choice(weapons))
     ct02.buy_weapon(random.choice(weapons))
 
+    t01.shoot(ct02)
+    t01.shoot(ct02)
+    t01.shoot(ct02)
+    t01.shoot(ct02)
+    t01.shoot(ct02)
+    t01.shoot(ct02)
+    t01.shoot(ct02)
+    t01.shoot(ct02)
+
+
+    ct02.plant_bomb()
+    ct01.defuse_bomb()
+
 main()
